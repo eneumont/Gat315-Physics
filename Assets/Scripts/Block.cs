@@ -20,8 +20,6 @@ public class Block : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other) {
-        
-
         if (!destroyed && other.CompareTag("Kill") && 
             rb.velocity.magnitude == 0 && 
             rb.angularVelocity.magnitude == 0) 
