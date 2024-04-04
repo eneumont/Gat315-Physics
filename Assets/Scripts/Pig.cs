@@ -7,7 +7,7 @@ public class Pig : MonoBehaviour {
 	[SerializeField] AudioSource audio;
 
 	void OnCollisionEnter(Collision collision) {
-		if (collision.rigidbody.velocity.magnitude > 0.1 || collision.rigidbody.angularVelocity.magnitude > 0.1) {
+		if (collision.rigidbody.velocity.magnitude > 0.3 || collision.rigidbody.angularVelocity.magnitude > 0.3) {
 			audio.Play();
 			Destroy(gameObject, 2);
 		}
