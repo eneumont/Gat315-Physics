@@ -17,6 +17,7 @@ public class Bird : MonoBehaviour {
 	Rigidbody rb;
 	bool ability = true;
 	GameObject Bluesd;
+	public int ammo;
 
 	void Start() {
 		if (lifespan > 0) Destroy(gameObject, lifespan);
@@ -46,7 +47,7 @@ public class Bird : MonoBehaviour {
 				break;
 			case BirdType.Bomb:
 				if (Input.GetKey(KeyCode.Z) && ability == true) {
-
+					
 					
 					ability = false;
 				}
