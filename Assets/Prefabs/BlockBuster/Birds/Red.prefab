@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3010434832141334941}
-  - component: {fileID: 1778501161968710520}
+  - component: {fileID: 3629781221960719692}
   - component: {fileID: 7819768407721239592}
   - component: {fileID: 5279815021495151821}
   m_Layer: 0
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 2897532365450047730}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1778501161968710520
+--- !u!114 &3629781221960719692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,11 +44,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8010286183893066508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed73c7e307252664dabe8ca40f9fbe78, type: 3}
+  m_Script: {fileID: 11500000, guid: 029d2aee59602594fa46634d987ccdb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
   lifespan: 2
+  type: 0
+  ammo: {fileID: 11400000, guid: 3e0a3e79a8080c54cad1d751d2528335, type: 2}
 --- !u!135 &7819768407721239592
 SphereCollider:
   m_ObjectHideFlags: 0

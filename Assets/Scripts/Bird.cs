@@ -17,7 +17,7 @@ public class Bird : MonoBehaviour {
 	Rigidbody rb;
 	bool ability = true;
 	GameObject Bluesd;
-	public int ammo;
+	public IntVariable ammo;
 
 	void Start() {
 		if (lifespan > 0) Destroy(gameObject, lifespan);
@@ -41,7 +41,9 @@ public class Bird : MonoBehaviour {
 					Instantiate(Bluesd, transform.position + new Vector3(-0.5f, -0.5f, 0), transform.rotation);
 					Instantiate(Bluesd, transform.position + new Vector3(0.5f, -0.5f, 0), transform.rotation);
 					
-					ability = false; 
+					ability = false;
+					
+					Destroy(gameObject);
 				}
 
 				break;
