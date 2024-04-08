@@ -13,10 +13,6 @@ public class UIManager : Singleton<UIManager> {
 	}
 
 	[SerializeField] Screen[] screens;
-	[SerializeField] TMP_Text redNumTxt;
-	[SerializeField] TMP_Text bluesNumTxt;
-	[SerializeField] TMP_Text bombNumTxt;
-	[SerializeField] TMP_Text chuckNumTxt;
 
 	Dictionary<string, Screen> registry = new Dictionary<string, Screen>();
 

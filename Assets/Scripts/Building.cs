@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Building : MonoBehaviour {
 	[SerializeField] int points = 100;
+	[SerializeField] int heath = 100;
 	[SerializeField] AudioSource audio;
 
 	Rigidbody rb;

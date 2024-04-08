@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
 	[SerializeField] IntVariable score;
-
 	[SerializeField] GameObject layout;
+	[SerializeField] TMP_Text playScoreTxt;
+	[SerializeField] TMP_Text winScoreTxt;
 
 	[Header("Events")]
 	[SerializeField] VoidEvent gameStartEvent;
@@ -47,12 +48,16 @@ public class GameManager : Singleton<GameManager> {
 				break;
 			case State.PLAY_GAME:
 				UIManager.Instance.SetActive("Play", true);
+
+				playScoreTxt.text = "Score " + score.value;
 				break;
 			case State.GAME_OVER:
 				UIManager.Instance.SetActive("Lose", true);
 				break;
 			case State.GAME_WON:
 				UIManager.Instance.SetActive("Win", true);
+
+				winScoreTxt.text = "Score " + score.value;
 				break;
 			default:
 				break;

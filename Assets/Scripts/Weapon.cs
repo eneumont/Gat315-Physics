@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,10 @@ public class Weapon : MonoBehaviour {
 	[SerializeField] Image bluesSelectImg;
 	[SerializeField] Image bombSelectImg;
 	[SerializeField] Image chuckSelectImg;
+	[SerializeField] TMP_Text redNumTxt;
+	[SerializeField] TMP_Text bluesNumTxt;
+	[SerializeField] TMP_Text bombNumTxt;
+	[SerializeField] TMP_Text chuckNumTxt;
 
 	int toggle = 0;
 	bool fireReady = true;
@@ -22,12 +27,23 @@ public class Weapon : MonoBehaviour {
 		bluesSelectImg.color = new Color(0, 0, 255);
 		chuckSelectImg.color = new Color(255, 255, 0);
 		bombSelectImg.color = new Color(61, 61, 61);
+		redNumTxt.text = "x " + ammo[0].ammo.value;
+		bluesNumTxt.text = "x " + ammo[1].ammo.value;
+		chuckNumTxt.text = "x " + ammo[2].ammo.value;
+		bombNumTxt.text = "x " + ammo[3].ammo.value;
 	}
 
 	void Update() {
 		if (fireReady && Input.GetMouseButtonDown(0) && ammo[toggle].ammo.value > 0) {
 			Instantiate(ammo[toggle], emission.position, emission.rotation);
 			fireReady = false;
+
+			ammo[toggle].ammo.value--;
+			redNumTxt.text = "x " + ammo[0].ammo.value;
+			bluesNumTxt.text = "x " + ammo[1].ammo.value;
+			chuckNumTxt.text = "x " + ammo[2].ammo.value;
+			bombNumTxt.text = "x " + ammo[3].ammo.value;
+
 			StartCoroutine(FireTimer(fireRate));
 		}
 
@@ -37,20 +53,19 @@ public class Weapon : MonoBehaviour {
 
 			switch (toggle) { 
 				case 0:
-					redSelectImg.
-					redSelectImg.color = new Color();
+					redSelectImg.color = new Color(165, 0, 255);
 					bombSelectImg.color = new Color(61, 61, 61);
 					break;
 				case 1:
-					bluesSelectImg.color = new Color();
+					bluesSelectImg.color = new Color(165, 0, 255);
 					redSelectImg.color = new Color(255, 0, 0);
 					break;
 				case 2:
-					chuckSelectImg.color = new Color();
+					chuckSelectImg.color = new Color(165, 0, 255);
 					bluesSelectImg.color = new Color(0, 0, 255);
 					break;
 				case 3:
-					bombSelectImg.color = new Color();
+					bombSelectImg.color = new Color(165, 0, 255);
 					chuckSelectImg.color = new Color(255, 255, 0);
 					break;
 			}
