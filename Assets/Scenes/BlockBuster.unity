@@ -646,6 +646,9 @@ MonoBehaviour:
   layout: {fileID: 1756210928}
   playScoreTxt: {fileID: 462472318}
   winScoreTxt: {fileID: 462472317}
+  StarOneImg: {fileID: 1009093205}
+  StarTwoImg: {fileID: 1009093204}
+  StarThreeImg: {fileID: 1009093203}
   gameStartEvent: {fileID: 11400000, guid: b1da0ff55902c4f4382ab2dffa596dea, type: 2}
   gameWinEvent: {fileID: 11400000, guid: a965f853474e1134b927fe3f8ad3f79a, type: 2}
   gameLoseEvent: {fileID: 11400000, guid: 3c18ce008bb508f499c05cf47d16b568, type: 2}
@@ -834,6 +837,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1009093203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2280534569537014375, guid: 5fe01b6051838234abdd3bd163be69fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1425530753396728402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1009093204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7034848623477602260, guid: 5fe01b6051838234abdd3bd163be69fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1425530753396728402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1009093205 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8678522122414781616, guid: 5fe01b6051838234abdd3bd163be69fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1425530753396728402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1143770352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,11 +1147,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 831514034}
-    - target: {fileID: 3824219555486161759, guid: 5fe01b6051838234abdd3bd163be69fe,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4129855374674575842, guid: 5fe01b6051838234abdd3bd163be69fe,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -29,11 +29,11 @@ public class UIManager : Singleton<UIManager> {
 		Screen screen = registry[name];
 		foreach (var _screen in screens) {
 			if (_screen.go == screen.go) {
-				screen.go.SetActive(active);
+				_screen.go.SetActive(active);
 			}
 
 			if (_screen.go != screen.go && exclusive) {
-				screen.go.SetActive(false);
+				_screen.go.SetActive(false);
 			}
 		}
 	}

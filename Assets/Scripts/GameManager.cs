@@ -10,7 +10,9 @@ public class GameManager : Singleton<GameManager> {
 	[SerializeField] GameObject layout;
 	[SerializeField] TMP_Text playScoreTxt;
 	[SerializeField] TMP_Text winScoreTxt;
-	[SerializeField] UIManager ui;
+	[SerializeField] Image StarOneImg;
+	[SerializeField] Image StarTwoImg;
+	[SerializeField] Image StarThreeImg;
 
 	[Header("Events")]
 	[SerializeField] VoidEvent gameStartEvent;
@@ -34,40 +36,39 @@ public class GameManager : Singleton<GameManager> {
 	void Update() {
 		switch (state) {
 			case State.TITLE:
-				//UIManager.Instance.SetActive("Title", true);
-				ui.SetActive("Title", true);
+				UIManager.Instance.SetActive("Title", true);
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
 				break;
 
 			case State.START_GAME:
-				//UIManager.Instance.SetActive("Title", false);
 				Cursor.lockState = CursorLockMode.Locked;
 				Cursor.visible = false;
 
 				// reset values
 				score.value = 0;
 
-				if (layout) Destroy(layout); Instantiate(layout);
+				if (layout) {
+					Destroy(layout); 
+					Instantiate(layout);
+				}
 				//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-				gameStartEvent.RaiseEvent();
-
 				state = State.PLAY_GAME;
+
+				gameStartEvent.RaiseEvent();
 				break;
 			case State.PLAY_GAME:
-				//UIManager.Instance.SetActive("Play", true);
-				ui.SetActive("Play", true);
+				UIManager.Instance.SetActive("Play", true);
 
 				playScoreTxt.text = "Score " + score.value;
 				break;
 			case State.GAME_OVER:
-				//UIManager.Instance.SetActive("Lose", true);
-				ui.SetActive("Lose", true);
+				UIManager.Instance.SetActive("Lose", true);
+
 				break;
 			case State.GAME_WON:
-				//UIManager.Instance.SetActive("Win", true);
-				ui.SetActive("Win", true);
+				UIManager.Instance.SetActive("Win", true);
 
 				winScoreTxt.text = "Score " + score.value;
 				break;
@@ -86,5 +87,19 @@ public class GameManager : Singleton<GameManager> {
 
 	public void winGame() { 
 		state = State.GAME_WON;
+
+		if (score <= 50000) {
+			StarOneImg.gameObject.SetActive(true);
+			StarTwoImg.gameObject.SetActive(false);
+			StarThreeImg.gameObject.SetActive(false);
+		} else if (score <= 70000) {
+			StarOneImg.gameObject.SetActive(true);
+			StarTwoImg.gameObject.SetActive(true);
+			StarThreeImg.gameObject.SetActive(false);
+		} else {
+			StarOneImg.gameObject.SetActive(true);
+			StarTwoImg.gameObject.SetActive(true);
+			StarThreeImg.gameObject.SetActive(true);
+		}
 	}
 }

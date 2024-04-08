@@ -55,7 +55,7 @@ public class Weapon : MonoBehaviour {
 			StartCoroutine(FireTimer(fireRate));
 		}
 
-		if (Input.GetKey(KeyCode.X)) {
+		if (Input.GetKeyUp(KeyCode.X)) {
 			toggle++;
 			if (toggle >= ammo.Length) toggle = 0;
 
