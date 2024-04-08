@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Bird : MonoBehaviour {
-	enum BirdType {
+	public enum BirdType {
 		Red,
 		Chuck,
 		Blues, 
@@ -13,11 +13,12 @@ public class Bird : MonoBehaviour {
 
 	[SerializeField] float speed = 1;
 	[SerializeField] float lifespan = 0;
-	[SerializeField] BirdType type = BirdType.Red;
+
 	Rigidbody rb;
 	bool ability = true;
 	GameObject Bluesd;
 	public IntVariable ammo;
+	public BirdType type = BirdType.Red;
 
 	void Start() {
 		if (lifespan > 0) Destroy(gameObject, lifespan);

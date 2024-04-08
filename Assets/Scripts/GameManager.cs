@@ -13,6 +13,8 @@ public class GameManager : Singleton<GameManager> {
 
 	[Header("Events")]
 	[SerializeField] VoidEvent gameStartEvent;
+	[SerializeField] VoidEvent gameWinEvent;
+	[SerializeField] VoidEvent gameLoseEvent;
 
 	public enum State {
 		TITLE,
@@ -22,6 +24,11 @@ public class GameManager : Singleton<GameManager> {
 		GAME_WON
 	}
 	private State state = State.TITLE;
+
+	void OnEnable() {
+		gameWinEvent.Subscribe(winGame);
+		gameLoseEvent.Subscribe(loseGame);
+	}
 
 	void Update() {
 		switch (state) {
@@ -64,7 +71,15 @@ public class GameManager : Singleton<GameManager> {
 		}
 	}
 
-	public void OnStartGame() {
+	public void startGame() { 
 		state = State.START_GAME;
+	}
+
+	public void loseGame() {
+		state = State.GAME_OVER;
+	}
+
+	public void winGame() { 
+		state = State.GAME_WON;
 	}
 }

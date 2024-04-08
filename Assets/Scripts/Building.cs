@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Building : MonoBehaviour {
-	[SerializeField] int points = 100;
-	[SerializeField] int heath = 100;
+	[SerializeField] IntVariable score;
 	[SerializeField] AudioSource audio;
 
 	Rigidbody rb;
-	bool destroyed = false;
+	int points;
+	int health;
 
 	public enum buildingType { 
 		Glass,
@@ -19,22 +19,67 @@ public class Building : MonoBehaviour {
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
-	}
 
-	void OnCollisionEnter(Collision collision) {
-		if (rb.velocity.magnitude > 2 || rb.angularVelocity.magnitude > 2) {
-			audio.Play();
+		switch (type) {
+			case buildingType.Glass:
+				points = 250;
+				health = 25;
+				break;
+			case buildingType.Wood:
+				points = 500;
+				health = 50;
+				break;
+			case buildingType.Stone:
+				points = 1000;
+				health = 100;
+				break;
 		}
 	}
 
-	void OnTriggerStay(Collider other) {
-		if (!destroyed && other.CompareTag("Kill") &&
-			rb.velocity.magnitude == 0 &&
-			rb.angularVelocity.magnitude == 0)
-		{
-			destroyed = true;
-			print(points);
-			Destroy(gameObject, 1);
+	void Update() {
+		if (health <= 0) {
+			Destroy(gameObject);
+		}	
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		if (rb.velocity.magnitude > 1 || rb.angularVelocity.magnitude > 1) {
+			audio.Play();
+
+			if (collision.gameObject.GetComponent<Bird>()) {
+				switch (collision.gameObject.GetComponent<Bird>().type) {
+					case Bird.BirdType.Red:
+						health -= 50;
+						break;
+					case Bird.BirdType.Chuck:
+						health -= 75;
+						break;
+					case Bird.BirdType.Blues:
+						health -= 25;
+						break;
+					case Bird.BirdType.Bomb:
+						health -= 100;
+						break;
+				}
+
+				score.value += points;
+			}
+
+			if (collision.gameObject.GetComponent<Building>()) {
+				switch (collision.gameObject.GetComponent<Building>().type) {
+					case buildingType.Glass:
+						health -= 15;
+						break;
+					case buildingType.Wood:
+						health -= 30;
+						break;
+					case buildingType.Stone:
+						health -= 50;
+						break;
+				}
+
+				score.value += points / 2;
+			}
 		}
 	}
 }

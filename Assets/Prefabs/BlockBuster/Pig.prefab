@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1e0590dc90ca34588d9baf5fd58d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 100
+  points: 1000
+  score: {fileID: 11400000, guid: 44252e921a5121a45bee6321f4fe48b0, type: 2}
   audio: {fileID: 2726783557658507480}
 --- !u!54 &264482113057980464
 Rigidbody:

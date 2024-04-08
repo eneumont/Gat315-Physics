@@ -1609,7 +1609,7 @@ PrefabInstance:
     - target: {fileID: 5959736635353418203, guid: 006e05d672edc3b4c8404fd6fed342e3,
         type: 3}
       propertyPath: m_Name
-      value: Pig
+      value: Pig (0)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

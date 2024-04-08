@@ -14,23 +14,31 @@ public class Weapon : MonoBehaviour {
 	[SerializeField] Image bluesSelectImg;
 	[SerializeField] Image bombSelectImg;
 	[SerializeField] Image chuckSelectImg;
-	[SerializeField] TMP_Text redNumTxt;
-	[SerializeField] TMP_Text bluesNumTxt;
-	[SerializeField] TMP_Text bombNumTxt;
-	[SerializeField] TMP_Text chuckNumTxt;
+	[SerializeField] TMP_Text redTxt;
+	[SerializeField] TMP_Text bluesTxt;
+	[SerializeField] TMP_Text bombTxt;
+	[SerializeField] TMP_Text chuckTxt;
+
+	[SerializeField] VoidEvent startGameEvent;
+	[SerializeField] VoidEvent winGameEvent;
+	[SerializeField] VoidEvent loseGameEvent;
 
 	int toggle = 0;
 	bool fireReady = true;
+
+	void OnEnable() {
+		startGameEvent.Subscribe(StartGame);	
+	}
 
 	void Start () {
 		redSelectImg.color = new Color(255, 0, 0);
 		bluesSelectImg.color = new Color(0, 0, 255);
 		chuckSelectImg.color = new Color(255, 255, 0);
 		bombSelectImg.color = new Color(61, 61, 61);
-		redNumTxt.text = "x " + ammo[0].ammo.value;
-		bluesNumTxt.text = "x " + ammo[1].ammo.value;
-		chuckNumTxt.text = "x " + ammo[2].ammo.value;
-		bombNumTxt.text = "x " + ammo[3].ammo.value;
+		redTxt.text = "x " + ammo[0].ammo.value;
+		bluesTxt.text = "x " + ammo[1].ammo.value;
+		chuckTxt.text = "x " + ammo[2].ammo.value;
+		bombTxt.text = "x " + ammo[3].ammo.value;
 	}
 
 	void Update() {
@@ -39,10 +47,10 @@ public class Weapon : MonoBehaviour {
 			fireReady = false;
 
 			ammo[toggle].ammo.value--;
-			redNumTxt.text = "x " + ammo[0].ammo.value;
-			bluesNumTxt.text = "x " + ammo[1].ammo.value;
-			chuckNumTxt.text = "x " + ammo[2].ammo.value;
-			bombNumTxt.text = "x " + ammo[3].ammo.value;
+			redTxt.text = "x " + ammo[0].ammo.value;
+			bluesTxt.text = "x " + ammo[1].ammo.value;
+			chuckTxt.text = "x " + ammo[2].ammo.value;
+			bombTxt.text = "x " + ammo[3].ammo.value;
 
 			StartCoroutine(FireTimer(fireRate));
 		}
@@ -70,10 +78,42 @@ public class Weapon : MonoBehaviour {
 					break;
 			}
 		}
+
+		WinGame();
+		LoseGame();
 	}
 
 	IEnumerator FireTimer(float time) {
 		yield return new WaitForSeconds(time);
 		fireReady = true;
+	}
+
+	void StartGame() {
+		for (int i = 0; i < ammo.Length; i++) {
+			ammo[i].ammo.value = 0;
+		}
+		toggle = 0;
+	}
+
+	void WinGame() {
+		GameObject[] pigs = new GameObject[10];
+		GameObject piggy = null;
+
+		for (int i = 0; i < pigs.Length; i++) {
+			pigs[i] = GameObject.Find("Pig (" + i + ")");
+			piggy = pigs[i];
+
+			if (piggy != null) break;
+		}
+
+		if (piggy == null) { winGameEvent.RaiseEvent(); }
+	}
+
+	void LoseGame() {
+		if (ammo[0].ammo.value < 1 && ammo[1].ammo.value < 1 &&
+			ammo[2].ammo.value < 1 && ammo[3].ammo.value < 1)
+		{
+			loseGameEvent.RaiseEvent();
+		}
 	}
 }
