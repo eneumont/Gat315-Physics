@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager> {
 	[SerializeField] GameObject layout;
 	[SerializeField] TMP_Text playScoreTxt;
 	[SerializeField] TMP_Text winScoreTxt;
+	[SerializeField] UIManager ui;
 
 	[Header("Events")]
 	[SerializeField] VoidEvent gameStartEvent;
@@ -33,7 +34,8 @@ public class GameManager : Singleton<GameManager> {
 	void Update() {
 		switch (state) {
 			case State.TITLE:
-				UIManager.Instance.SetActive("Title", true);
+				//UIManager.Instance.SetActive("Title", true);
+				ui.SetActive("Title", true);
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
 				break;
@@ -54,15 +56,18 @@ public class GameManager : Singleton<GameManager> {
 				state = State.PLAY_GAME;
 				break;
 			case State.PLAY_GAME:
-				UIManager.Instance.SetActive("Play", true);
+				//UIManager.Instance.SetActive("Play", true);
+				ui.SetActive("Play", true);
 
 				playScoreTxt.text = "Score " + score.value;
 				break;
 			case State.GAME_OVER:
-				UIManager.Instance.SetActive("Lose", true);
+				//UIManager.Instance.SetActive("Lose", true);
+				ui.SetActive("Lose", true);
 				break;
 			case State.GAME_WON:
-				UIManager.Instance.SetActive("Win", true);
+				//UIManager.Instance.SetActive("Win", true);
+				ui.SetActive("Win", true);
 
 				winScoreTxt.text = "Score " + score.value;
 				break;
