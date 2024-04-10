@@ -25,11 +25,9 @@ public class CharacterMovement : MonoBehaviour {
 		if (onGround && velocity.y < 0) {
 			velocity.y = 0f;
 		}
-		animator.SetBool("OnGround", onGround);
 
 		Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 		move = Vector3.ClampMagnitude(move, 1);
-		animator.SetFloat("Speed", move.magnitude);
 
 		//view space
 		move = Quaternion.Euler(0, view.rotation.eulerAngles.y, 0) * move;
@@ -46,10 +44,18 @@ public class CharacterMovement : MonoBehaviour {
 		if (Input.GetButtonDown("Jump") && onGround) {
 			velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * Physics.gravity.y);
 		}
-		animator.SetFloat("YVelocity", velocity.y);
 
 		velocity.y += Physics.gravity.y * Time.deltaTime;
 		controller.Move(velocity * Time.deltaTime);
+
+		if (Input.GetKeyDown(KeyCode.E)) {
+			animator.SetBool("Equipped", !animator.GetBool("Equipped"));
+		}
+
+		//animations
+		animator.SetFloat("Speed", move.magnitude * speed);
+		animator.SetFloat("YVelocity", velocity.y);
+		animator.SetBool("OnGround", onGround);
 	}
 
 	void OnControllerColliderHit(ControllerColliderHit hit) {
