@@ -707,8 +707,8 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_SkinWidth: 0.0001
+  m_MinMoveDistance: 0.0001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &691224381
 MonoBehaviour:
@@ -727,6 +727,7 @@ MonoBehaviour:
   pushPower: 2
   rotationRate: 3
   view: {fileID: 571090148}
+  animator: {fileID: 1799331275}
 --- !u!1 &770848362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1130,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9542876, guid: 534b7b0f42c1d304299f3f3762536fb4, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 18e0e771b0a61db4a84febce50b45a2e, type: 2}
+    - target: {fileID: 9542876, guid: 534b7b0f42c1d304299f3f3762536fb4, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 147760, guid: 534b7b0f42c1d304299f3f3762536fb4, type: 3}
@@ -1517,6 +1526,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &1799331275 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9542876, guid: 534b7b0f42c1d304299f3f3762536fb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1037845100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1875272258
 GameObject:
   m_ObjectHideFlags: 0
