@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour {
-    [SerializeField] Bird[] ammo;
+    [SerializeField] GameObject[] ammo;
     [SerializeField] Transform emission;
     [SerializeField] AudioSource audio;
 	[SerializeField] float fireRate;
@@ -35,22 +35,22 @@ public class Weapon : MonoBehaviour {
 		bluesSelectImg.color = new Color(0, 0, 255);
 		chuckSelectImg.color = new Color(255, 255, 0);
 		bombSelectImg.color = new Color(61, 61, 61);
-		redTxt.text = "x " + ammo[0].ammo.value;
-		bluesTxt.text = "x " + ammo[1].ammo.value;
-		chuckTxt.text = "x " + ammo[2].ammo.value;
-		bombTxt.text = "x " + ammo[3].ammo.value;
+		redTxt.text = "x " + ammo[0].GetComponent<Bird>().ammo.value;
+		bluesTxt.text = "x " + ammo[1].GetComponent<Bird>().ammo.value;
+		chuckTxt.text = "x " + ammo[2].GetComponent<Bird>().ammo.value;
+		bombTxt.text = "x " + ammo[3].GetComponent<Bird>().ammo.value;
 	}
 
 	void Update() {
-		if (fireReady && Input.GetMouseButtonDown(0) && ammo[toggle].ammo.value > 0) {
+		if (fireReady && Input.GetMouseButtonDown(0) && ammo[toggle].GetComponent<Bird>().ammo.value > 0) {
 			Instantiate(ammo[toggle], emission.position, emission.rotation);
 			fireReady = false;
 
-			ammo[toggle].ammo.value--;
-			redTxt.text = "x " + ammo[0].ammo.value;
-			bluesTxt.text = "x " + ammo[1].ammo.value;
-			chuckTxt.text = "x " + ammo[2].ammo.value;
-			bombTxt.text = "x " + ammo[3].ammo.value;
+			ammo[toggle].GetComponent<Bird>().ammo.value--;
+			redTxt.text = "x " + ammo[0].GetComponent<Bird>().ammo.value;
+			bluesTxt.text = "x " + ammo[1].GetComponent<Bird>().ammo.value;
+			chuckTxt.text = "x " + ammo[2].GetComponent<Bird>().ammo.value;
+			bombTxt.text = "x " + ammo[3].GetComponent<Bird>().ammo.value;
 
 			StartCoroutine(FireTimer(fireRate));
 		}
@@ -90,7 +90,7 @@ public class Weapon : MonoBehaviour {
 
 	void StartGame() {
 		for (int i = 0; i < ammo.Length; i++) {
-			ammo[i].ammo.value = 0;
+			ammo[i].GetComponent<Bird>().ammo.value = 0;
 		}
 		toggle = 0;
 	}
@@ -110,8 +110,8 @@ public class Weapon : MonoBehaviour {
 	}
 
 	void LoseGame() {
-		if (ammo[0].ammo.value < 1 && ammo[1].ammo.value < 1 &&
-			ammo[2].ammo.value < 1 && ammo[3].ammo.value < 1)
+		if (ammo[0].GetComponent<Bird>().ammo.value < 1 && ammo[1].GetComponent<Bird>().ammo.value < 1 &&
+			ammo[2].GetComponent<Bird>().ammo.value < 1 && ammo[3].GetComponent<Bird>().ammo.value < 1)
 		{
 			loseGameEvent.RaiseEvent();
 		}
