@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 [RequireComponent(typeof(CharacterController))]
 public class CharacterMovement : MonoBehaviour {
@@ -10,6 +11,7 @@ public class CharacterMovement : MonoBehaviour {
 	[SerializeField, Range(1, 10)] int rotationRate = 3;
 	[SerializeField] Transform view;
 	[SerializeField] Animator animator = default;
+	[SerializeField] Rig rig;
 
 	private CharacterController controller;
 	private Vector3 velocity;
@@ -18,6 +20,7 @@ public class CharacterMovement : MonoBehaviour {
 
 	private void Start() {
 		controller = gameObject.GetComponent<CharacterController>();
+		rig.weight = (animator.GetBool("Equipped")) ? 1 : 0;
 	}
 
 	void Update() {
@@ -50,7 +53,14 @@ public class CharacterMovement : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.E)) {
 			animator.SetBool("Equipped", !animator.GetBool("Equipped"));
+			
+			if (animator.GetBool("Equipped")) {
+				rig.weight = 1;
+			} else {
+				rig.weight = 0;
+			}
 		}
+
 
 		//animations
 		animator.SetFloat("Speed", move.magnitude * speed);
