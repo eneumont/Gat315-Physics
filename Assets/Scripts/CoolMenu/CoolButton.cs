@@ -18,7 +18,7 @@ public class CoolButton : MonoBehaviour {
             btnText.color = Color.white;
 			backImage.color = new Color(255, 0, 0, 1);
         } else {
-			btnText.color = new Color(0, 195, 255);
+			btnText.color = new Color(0, 0, 255);
 			backImage.color = new Color(255, 0, 0, 0);
 		}
     }
@@ -36,7 +36,8 @@ public class CoolButton : MonoBehaviour {
 		for (int index = 0; index < eventSystemRaysastResults.Count; index++) {
 			RaycastResult curRaysastResult = eventSystemRaysastResults[index];
 
-			if (curRaysastResult.gameObject == gameObject) return true;
+			if (curRaysastResult.gameObject == gameObject || 
+				curRaysastResult.gameObject == backImage.gameObject) return true;
 		}
 
 		return false;

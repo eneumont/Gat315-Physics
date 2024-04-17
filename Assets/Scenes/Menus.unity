@@ -696,15 +696,20 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2120634368}
-    - target: {fileID: 2866806779637417641, guid: dd774fffb95fc864b8be3bb34301e758,
-        type: 3}
-      propertyPath: m_PlaneDistance
-      value: 8.79
-      objectReference: {fileID: 0}
     - target: {fileID: 5152546412459126604, guid: dd774fffb95fc864b8be3bb34301e758,
         type: 3}
       propertyPath: m_Name
       value: CoolMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548024677023525792, guid: dd774fffb95fc864b8be3bb34301e758,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548024677023525792, guid: dd774fffb95fc864b8be3bb34301e758,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

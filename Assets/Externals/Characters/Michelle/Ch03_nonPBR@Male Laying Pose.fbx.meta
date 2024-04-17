@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: 6e4ac558fcd5ec54e839bc288e1275fd
+guid: 7baa4b4af54c9d042b7fd7738889bbac
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ch03_Body
-    second: {fileID: 2100000, guid: f0c2038eeaba8f1488f3873739b930a2, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch03_1001_Diffuse
-    second: {fileID: 2800000, guid: 04387160b546e9d4abdc9f56fd454c3a, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch03_1001_Glossiness
-    second: {fileID: 2800000, guid: 23832b80ce0a8fe4aa69b375a9ee7afb, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch03_1001_Normal
-    second: {fileID: 2800000, guid: da427c74d6eeba54a99e5f5a5f697b98, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch03_1001_Specular
-    second: {fileID: 2800000, guid: 0a1d0ee6d5725dc40ace6075b618ce13, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -102,15 +77,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - e43e2f45d63835b40b9dcaa91a6b39b6
-  - a7e0786dcd080294d810477bf951b75b
-  - fefc7db1cdf0c9341a53bf8f03605e25
-  - 97fc99c64f96f4a44bb78a363d1c668d
-  - 2bdbf15b84c57a74591cfb4a202c17ea
-  - 7baa4b4af54c9d042b7fd7738889bbac
-  - db6a5bbeb9560714aa138ba8cdc52a20
-  - 8be7f559cf9c83148bcf752b0daece24
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -880,11 +847,12 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 6e4ac558fcd5ec54e839bc288e1275fd,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
