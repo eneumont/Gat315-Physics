@@ -386,6 +386,7 @@ GameObject:
   - component: {fileID: 676847048}
   - component: {fileID: 676847050}
   - component: {fileID: 676847047}
+  - component: {fileID: 676847051}
   - component: {fileID: 676847046}
   m_Layer: 0
   m_Name: Water
@@ -406,11 +407,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73126845e1e43264bb362c3db2aad93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wave:
-    amplitude: 1
-    length: 1
-    roll: 1
-    rate: 10
+  waves:
+  - amplitude: 0
+    length: 0
+    roll: 0
+    rate: 0
+    direction: 0
+  - amplitude: 0
+    length: 0
+    roll: 0
+    rate: 0
+    direction: 0
+  - amplitude: 0
+    length: 0
+    roll: 0
+    rate: 0
+    direction: 0
   xSize: 40
   zSize: 40
   xVertexNum: 40
@@ -502,6 +514,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &676847051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676847045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940988901ad28b34c80f9ec6b51f9fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 0
+  speed: 0
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
