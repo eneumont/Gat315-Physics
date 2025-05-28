@@ -47,10 +47,10 @@ public class wandDecorator : characterDecorator {
 	public wandDecorator(Character c) : base(c) {}
 
 	public string getName() {
-		return c.getName() + ", ";
+		return c.getName() + ", and she uses a wand.";
 	}
 
 	public string getClass() {
-		return c.getClass() + ", ";
+		return c.getClass() + ", and she specializes in fire magic.";
 	}
 }
